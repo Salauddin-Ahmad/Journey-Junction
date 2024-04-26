@@ -1,20 +1,29 @@
-import { useContext } from "react";
-import { AuthContext } from "../firebase/AuthProvider";
 import { NavLink } from "react-router-dom";
+import useAuth from "../firebase/useAuth";
+import LoginWith from "./LoginWith";
 
 const Login = () => {
-  const { theme } = useContext(AuthContext);
+  const { theme, signInUser } = useAuth();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signInUser(email, password);
+  }
+
+
   return (
     <>
       <section  className={`overflow-hidden ${theme === 'dark' ? 'dark:bg-gray-900' : ''}`}>
-        <div className="flex flex-col items-center justify-center px-6  mx-auto md:h-screen lg:py-0">
+        <div className="flex flex-col items-center justify-center px-6  mx-auto lg:py-0">
 
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-8 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Log in to your account
               </h1>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form onSubmit={handleLogin} className="space-y-4 md:space-y-6" action="#">
                 <div>
                   <label
                     htmlFor="email"
@@ -55,7 +64,7 @@ const Login = () => {
                         aria-describedby="remember"
                         type="checkbox"
                         className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
-                        required
+                       
                       />
                     </div>
                     <div className="ml-3 text-sm">
@@ -91,6 +100,7 @@ const Login = () => {
                   </NavLink>
                 </p>
               </form>
+              <LoginWith></LoginWith>
             </div>
           </div>
         </div>
