@@ -6,7 +6,8 @@ import AuthProvider from './firebase/AuthProvider'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Root from './layouts/Root'
 import Error from './Error/Error'
-import Navabar from './components/Navabar'
+import Login from './components/Login'
+import Register from './components/Register'
 
 const router = createBrowserRouter([
   {
@@ -15,8 +16,12 @@ const router = createBrowserRouter([
     errorElement: <Error></Error>,
     children: [
       {
-        path: "/",
-        element: <Navabar></Navabar>,
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       }
     ],
   },
