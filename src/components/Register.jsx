@@ -2,20 +2,40 @@
 // import { AuthContext } from "../firebase/AuthProvider";
 import { NavLink } from "react-router-dom";
 import useAuth from "../firebase/useAuth";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { theme, createUser } = useAuth();
 
-  const handleRegistration = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value;
-    const photo = form.photo.value;
-    const email = form.email.value;
-    const password = form.password.value;
-    console.log(email, password, name, photo);
-    createUser(email, password);
-  };
+const handleRegistration = (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const name = form.name.value;
+  const photo = form.photo.value;
+  const email = form.email.value;
+  const password = form.password.value;
+
+  console.log(email, password, name, photo);
+
+  createUser(email, password)
+    .then(result => {
+      if (result.user) {
+        Swal.fire({
+          title: "Good job!",
+          text: "Logged in successfully",
+          icon: "success"
+        });
+      } 
+    })
+    .catch(error => {
+      console.error("Registration Error:", error);
+      Swal.fire({
+        title: "Oops!",
+        text: "An error occurred during registration. Please try again later.",
+        icon: "error"
+      });
+    });
+};
 
   return (
     <>

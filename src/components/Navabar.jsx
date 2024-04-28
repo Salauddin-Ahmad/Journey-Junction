@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 // import { FaRegUserCircle } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../firebase/useAuth";
+import { FaRegUserCircle } from "react-icons/fa";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
+  const { user, logOut } = useAuth() || {};
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -29,6 +33,17 @@ const Navbar = () => {
       </NavLink>
 
       <NavLink
+        to="/addspots"
+        className={({ isActive }) =>
+          isActive
+            ? "text-yellow-500 border  rounded-lg border-[#58d4db77] bg-[#303b43f5]  font-bold mr-2 bg"
+            : "font-bold mr-2"
+        }
+      >
+        <span className="p-2 text-lg font-bold">Add</span>
+      </NavLink>
+
+      <NavLink
         to="/allspots"
         className={({ isActive }) =>
           isActive
@@ -39,7 +54,7 @@ const Navbar = () => {
         <span className="p-2 text-lg font-bold">All Tourist spot</span>
       </NavLink>
       <NavLink
-        to="/mylist"
+        to="/myList"
         className={({ isActive }) =>
           isActive
             ? "text-yellow-500 border rounded-lg border-[#58d4db77] bg-[#303b43f5]  font-bold mr-2 bg"
@@ -106,7 +121,12 @@ const Navbar = () => {
               {loginAndOut}
             </ul>
           </div>
-          <a className="btn btn-ghost text-4xl">JourneyJunction</a>
+          <Link
+            to={"/"}
+            className="text-4xl font-bold hover:text-yellow-400 transition-transform hover:scale-105"
+          >
+            <span className="text-4xl">JourneyJunction</span>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks} </ul>
@@ -151,9 +171,42 @@ const Navbar = () => {
             </label>
           </div>
 
-          {loginAndOut}
+          {user ? (
+            <>
+              <button
+                onClick={() => logOut()}
+                className="bg-[#303b43f5]
+                 border border-[#58d4db77] text text-red-400 px-2 py-1 rounded-lg"
+              >
+                <span className="text-base  font-bold">Sign Out</span>
+              </button>
+
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+                data-tooltip-id="avatarTooltip"
+                data-tooltip-content={user?.displayName}
+              >
+                <div className="w-10 rounded-full text-center flex items-center justify-center">
+                  {user ? (
+                    <img
+                      className="w-10 rounded-full"
+                      src={user.photoURL}
+                      alt={user.displayName}
+                    />
+                  ) : (
+                    <FaRegUserCircle className=" text-[41px]" />
+                  )}
+                </div>
+              </div>
+            </>
+          ) : (
+            <>{loginAndOut}</>
+          )}
         </div>
       </div>
+      <Tooltip id="avatarTooltip" place="bottom" effect="solid" />
     </>
   );
 };

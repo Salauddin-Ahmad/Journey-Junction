@@ -8,6 +8,10 @@ import Root from './layouts/Root'
 import Error from './Error/Error'
 import Login from './components/Login'
 import Register from './components/Register'
+import Sliders from './components/Sliders'
+import AddTouristForm from './components/AddTouristForm'
+import MySpotsCard from './components/MySpotsCard'
+import UpdateDEtails from './components/UpdateDEtails'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +19,27 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     errorElement: <Error></Error>,
     children: [
+      {
+        path: '/',
+        element: 
+        <>
+        <Sliders></Sliders>
+        
+        </>
+        ,
+      },
+      {
+        path: "/updateDetails/:id",
+        element: <UpdateDEtails></UpdateDEtails>,
+      },
+      {
+        path: "/myList",
+        element: <MySpotsCard></MySpotsCard>
+      },
+      {
+        path: "/addspots",
+        element: <AddTouristForm></AddTouristForm>
+      },
       {
         path: "/login",
         element: <Login></Login>,

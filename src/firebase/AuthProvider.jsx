@@ -1,5 +1,13 @@
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import  { createContext, useState, useEffect } from "react";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+} from "firebase/auth";
+import { createContext, useState, useEffect } from "react";
 import auth from "./firebase.config";
 
 export const AuthContext = createContext();
@@ -9,58 +17,79 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Theme state
-  const [isLoading, setIsLoading] = useState(true);
+  // // Theme state
+  // const [isLoading, setIsLoading] = useState(true);
 
-  // Theme functions
-  const [theme, setTheme] = useState("light");
-  useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) {
-      setTheme(storedTheme);
-    }
-  }, []);
-  useEffect(() => {
-    localStorage.setItem("theme", theme);
-    document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
+  // // Theme functions
+  // const [theme, setTheme] = useState("light");
+  // useEffect(() => {
+  //   const storedTheme = localStorage.getItem("theme");
+  //   if (storedTheme) {
+  //     setTheme(storedTheme);
+  //   }
+  // }, []);
+  // useEffect(() => {
+  //   localStorage.setItem("theme", theme);
+  //   document.documentElement.setAttribute("data-theme", theme);
+  // }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-  };
+  // const toggleTheme = () => {
+  //   setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  // };
   // Theme functions ends here
-
 
   //   create new user
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
- //  sign in existing user
+  //  sign in existing user
   const signInUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  // google and github login
   const googleLogin = (email, password) => {
-    return signInWithPopup(auth, googleProvider)
-  }
+    return signInWithPopup(auth, googleProvider);
+  };
   const gitHubLogin = (email, password) => {
-    return signInWithPopup(auth, gitHubProvider)
-  }
+    return signInWithPopup(auth, gitHubProvider);
+  };
+  // sign out
+  const logOut = () => {
+    setUser(null);
+    signOut(auth);
+  };
+
+  // obsever
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        setLoading(false);
+      } else {
+        setUser(null);
+        setLoading(false);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   return (
     <AuthContext.Provider
       value={{
+        // theme,
+        // toggleTheme,
+        // isLoading,
         user,
         createUser,
         signInUser,
-        isLoading,
-        theme,
-        toggleTheme,
+        loading,
         gitHubLogin,
         googleLogin,
-        
+        logOut,
       }}
     >
       {children}

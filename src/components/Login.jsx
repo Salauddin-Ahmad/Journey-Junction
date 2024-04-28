@@ -1,20 +1,52 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../firebase/useAuth";
 import LoginWith from "./LoginWith";
+import Swal from "sweetalert2";
+// import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
-  const { theme, signInUser } = useAuth();
-  const handleLogin = (e) => {
+  const { theme, signInUser,  } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
+
+  const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    signInUser(email, password);
-  }
+  
+    try {
+      console.log("Attempting login...");
+      await signInUser(email, password);
+      console.log("Login successful");
+      // Show success message using SweetAlert
+      Swal.fire({
+        title: "Good job!",
+        text: "Login successful",
+        icon: "success",
+      });
+      // Delay the navigation to allow the toast to display
+      setTimeout(() => {
+        navigate(from);
+      }, 1500);
+    } catch (error) {
+      console.error("Login failed:", error);
+      // Show error message using SweetAlert
+      Swal.fire({
+        title: "Oops!",
+        text: "Login failed: " + error.message,
+        icon: "error",
+      });
+    }
+  };
+  
+  
 
 
   return (
     <>
+ 
       <section  className={`overflow-hidden ${theme === 'dark' ? 'dark:bg-gray-900' : ''}`}>
         <div className="flex flex-col items-center justify-center px-6  mx-auto lg:py-0">
 
