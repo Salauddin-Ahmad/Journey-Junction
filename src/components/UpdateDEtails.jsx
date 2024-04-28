@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateDEtails = () => {
     const {id} = useParams();
     // console.log(id);
     const [details, setDetails] = useState({});
     // console.log(details);
+    
 
+    // get data from sever
     useEffect(() => {
         fetch(`http://localhost:5000/upDetails/${id}`)
        .then(res => res.json())
@@ -15,13 +18,57 @@ const UpdateDEtails = () => {
             console.log(data);
         })
     },[id])
+
+
+    const handleUpdate = (event) => {
+        event.preventDefault();
+        // const originalName = user.email;
+        // const email = form.email.value;
+        // const name = form.name.value;
+
+        const form = event.target;
+        console.log(form)
+        const photo = form.photo.value;
+        const country = form.country.value;
+        const spot = form.spot.value;
+        const location = form.location.value;
+        const cost = form.cost.value;
+        const season = form.season.value;
+        const travelTime = form.travelTime.value;
+        const totalVisit = form.totalVisit.value;
+        const description = form.description.value;
+
+        const info = {country, cost, season, travelTime, totalVisit, description, location, spot,  photo}
+        console.log(info);
+
+        // update information
+        fetch(`http://localhost:5000/updateSpot/${id}`, {
+          method: "PUT",
+          headers: {
+            "content-Type": "application/json"},
+          body: JSON.stringify(info),
+        })
+         .then((res) => res.json())
+         .then((data) => {
+           if(data?.modifiedCount!=null){
+            Swal.fire({
+              // title: "Good job!",
+              text: "Updated successfully",
+              icon: "success",
+            });
+           }
+          })
+    
+      };
+
+
     return (
         <section className="bg-white dark:bg-gray-500">
         <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
           <h2 className="mb-4 text-xl text-center font-bold text-gray-900 dark:text-white">
-            Add a new Tourist Spot
+            Update Your  Tourist Spot Here :-
           </h2>
-          <form onSubmit={handleSubmit} action="#">
+          <form onSubmit={handleUpdate} >
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div className="w-full">
                 {" "}
@@ -37,6 +84,7 @@ const UpdateDEtails = () => {
                   id="country"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Type Country Name"
+                  defaultValue={details.country}
                   required
                 />
               </div>
@@ -50,10 +98,11 @@ const UpdateDEtails = () => {
                 </label>{" "}
                 <input
                   type="text"
-                  name="spotName"
-                  id="spotName"
+                  name="spot"
+                  id="spot"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Type Spot name"
+                  defaultValue={details.spot}
                   required
                 />
               </div>
@@ -70,6 +119,7 @@ const UpdateDEtails = () => {
                   id="location"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Type Location here"
+                  defaultValue={details.location}
                   required
                 />
               </div>
@@ -86,6 +136,7 @@ const UpdateDEtails = () => {
                   id="photo"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Type Photo URl"
+                  defaultValue={details.photo}
                   required
                 />
               </div>
@@ -99,10 +150,11 @@ const UpdateDEtails = () => {
                 </label>{" "}
                 <input
                   type="text"
-                  name="averageCost"
-                  id="averageCost"
+                  name="cost"
+                  id="cost"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Type Average Cost"
+                  defaultValue={details.cost}
                   required
                 />{" "}
               </div>{" "}
@@ -116,10 +168,11 @@ const UpdateDEtails = () => {
                 </label>{" "}
                 <input
                   type="text"
-                  name="seasonality"
-                  id="seasonality"
+                  name="season"
+                  id="season"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Type Season Names"
+                  defaultValue={details.season}
                   required
                 />{" "}
               </div>{" "}
@@ -137,6 +190,7 @@ const UpdateDEtails = () => {
                   id="travelTime"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Type Travel Time For Visits"
+                  defaultValue={details.travelTime}
                   required
                 />{" "}
               </div>{" "}
@@ -154,26 +208,29 @@ const UpdateDEtails = () => {
                   id="totalVisit"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Type Total Yearly Vistors"
+                  defaultValue={details.totalVisit}
                   required
                 />{" "}
               </div>{" "}
-              <div>
-                {" "}
+
+              {/* user name and email */}
+              {/* <div>
                 <label
                   htmlFor=""
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   User Name
-                </label>{" "}
+                </label>
                 <input
                   type="text"
                   name="name"
                   id="name"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Please Type Your Name"
+                  defaultValue={details?.userName}
                   required
-                />{" "}
-              </div>{" "}
+                />
+              </div>
               <div>
                 {" "}
                 <label
@@ -188,9 +245,13 @@ const UpdateDEtails = () => {
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Type Your Email"
+                  defaultValue={details?.email}
                   required
                 />{" "}
-              </div>{" "}
+              </div> */}
+
+
+
               {/* short description */}
               <div className="sm:col-span-2">
                 <label
@@ -205,6 +266,7 @@ const UpdateDEtails = () => {
                   id="description"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                   placeholder="Write Short Description"
+                  defaultValue={details.description}
                   required
                 />
               </div>
@@ -216,7 +278,7 @@ const UpdateDEtails = () => {
                 type="submit"
                 className="btn btn-primary hover:bg-blue-600"
               >
-                Add product
+                Update Details
               </button>
   
   
