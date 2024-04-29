@@ -6,37 +6,47 @@ import Swal from "sweetalert2";
 
 const Register = () => {
   const { theme, createUser } = useAuth();
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
 
-const handleRegistration = (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const name = form.name.value;
-  const photo = form.photo.value;
-  const email = form.email.value;
-  const password = form.password.value;
+  const handleRegistration = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
 
-  console.log(email, password, name, photo);
-
-  createUser(email, password)
-    .then(result => {
-      if (result.user) {
-        Swal.fire({
-          title: "Good job!",
-          text: "Logged in successfully",
-          icon: "success"
-        });
-      } 
-    })
-    .catch(error => {
-      console.error("Registration Error:", error);
+    // Validate password using regex
+    if (!passwordRegex.test(password)) {
       Swal.fire({
         title: "Oops!",
-        text: "An error occurred during registration. Please try again later.",
+        text: "Password must contain at least one uppercase letter, one lowercase letter, and be at least 6 characters long.",
         icon: "error"
       });
-    });
-};
+      return;
+    }
 
+    console.log(email, password, name, photo);
+
+    createUser(email, password)
+      .then(result => {
+        if (result.user) {
+          Swal.fire({
+            title: "Good job!",
+            text: "Registration successfull",
+            icon: "success"
+          });
+        } 
+      })
+      .catch(error => {
+        console.error("Registration Error:", error);
+        Swal.fire({
+          title: "Oops!",
+          text: ("An error occurred during registration. ", error.message),
+          icon: "error"
+        });
+      });
+  };
   return (
     <>
       <section

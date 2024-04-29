@@ -3,8 +3,10 @@ import useAuth from "../firebase/useAuth";
 import { Link } from "react-router-dom";
 
 const MySpotsCard = () => {
-  const { user } = useAuth() || {};
+  const { user, } = useAuth() || {};
   const [item, setItem] = useState([]);
+ const [control, setControl] = useState(false);
+
 
   // route for getting data from server
   useEffect(() => {
@@ -13,9 +15,21 @@ const MySpotsCard = () => {
       .then((data) => {
         setItem(data);
       });
-  }, [user]);
+  }, [user, control]);
 
-  console.log(item);
+  // why this says failed to fetch  ????? 
+  const handleDelete = id => {
+    fetch(`http://localhost:5000/delete/${id}`, {
+      method: "DELETE",
+    })
+     .then((res) => res.json())
+     .then((data) => {
+        console.log(data);
+        if(data.deletedCount > 0){
+          setControl(!control)
+        }
+      });
+  }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -32,7 +46,7 @@ const MySpotsCard = () => {
           <Link to={`/updateDetails/${data._id}`}>
           <button className="btn bg-blue-600">Update</button>
           </Link>
-            <button className="btn  bg-red-800">Delete</button>
+            <button onClick={() => handleDelete(data._id)} className="btn  bg-red-800">Delete</button>
           </div>
         </div>
       ))}

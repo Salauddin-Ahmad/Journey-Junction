@@ -40,9 +40,6 @@ const Login = () => {
       });
     }
   };
-  
-  
-
 
   return (
     <>
