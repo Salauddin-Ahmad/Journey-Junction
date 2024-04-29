@@ -12,6 +12,9 @@ import Sliders from './components/Sliders'
 import AddTouristForm from './components/AddTouristForm'
 import MySpotsCard from './components/MySpotsCard'
 import UpdateDEtails from './components/UpdateDEtails'
+import ToristSpots from './components/ToristSpots'
+import AllSpots from './components/AllSpots'
+import PrivateRoute from './components/PrivateRoute'
 
 const router = createBrowserRouter([
   {
@@ -24,7 +27,7 @@ const router = createBrowserRouter([
         element: 
         <>
         <Sliders></Sliders>
-        
+        <ToristSpots></ToristSpots>
         </>
         ,
       },
@@ -34,7 +37,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/myList",
-        element: <MySpotsCard></MySpotsCard>
+        element: <PrivateRoute>
+          <MySpotsCard></MySpotsCard>
+        </PrivateRoute>
+      },
+      {
+        path: "/allspots",
+        element: <PrivateRoute>
+          <AllSpots></AllSpots>
+        </PrivateRoute>,
       },
       {
         path: "/addspots",

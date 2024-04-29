@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAuth from "../firebase/useAuth";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MySpotsCard = () => {
   const { user, } = useAuth() || {};
@@ -17,19 +18,41 @@ const MySpotsCard = () => {
       });
   }, [user, control]);
 
-  // why this says failed to fetch  ????? 
-  const handleDelete = id => {
-    fetch(`http://localhost:5000/delete/${id}`, {
-      method: "DELETE",
-    })
-     .then((res) => res.json())
-     .then((data) => {
-        console.log(data);
-        if(data.deletedCount > 0){
-          setControl(!control)
+
+const handleDelete = (id) => {
+    Swal.fire({
+        title: "Do you want to delete this item?",
+        
+        showCancelButton: true,
+        confirmButtonText: "Delete",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // Proceed with the deletion
+            fetch(`http://localhost:5000/delete/${id}`, {
+                method: "DELETE"
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    // Update state or perform any necessary action
+                    setControl(!control);
+                    Swal.fire("Deleted!", "The item has been deleted.", "success");
+                } else {
+                    Swal.fire("Error", "Failed to delete the item.", "error");
+                }
+            })
+            .catch((error) => {
+                console.error("Error deleting item:", error);
+                Swal.fire("Error", "An error occurred while deleting the item.", "error");
+            });
+        } else if (result.isDenied) {
+            // Handle case where deletion is canceled
+            Swal.fire("Cancelled", "Deletion cancelled.", "info");
         }
-      });
-  }
+    });
+};
+
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

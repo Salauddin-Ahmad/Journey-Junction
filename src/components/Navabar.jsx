@@ -53,6 +53,8 @@ const Navbar = () => {
       >
         <span className="p-2 text-lg font-bold">All Tourist spot</span>
       </NavLink>
+
+      
       <NavLink
         to="/myList"
         className={({ isActive }) =>
