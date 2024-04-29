@@ -8,3 +8,10 @@
 .sans {
     font-family: "Open Sans", sans-serif;
 }
+
+@media only screen and (max-width: 768px) {
+    .hide-on-small-devices {
+      display: none;
+    }
+  }
+  

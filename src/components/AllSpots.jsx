@@ -23,10 +23,10 @@ const AllSpots = () => {
             src={spot.photo}
             alt={spot.country}
           />
-          <h1 className="text-xl font-semibold">{spot.spot}</h1>
+          <h1 className="text-xl font-semibold">Spot Name: {spot.spot}</h1>
           <p className="text-base font-semibold">Average cost: {spot.cost} $</p>
+          <p className="text-base font-semibold">Total Visitors Per Year: {spot.totalVisit} </p>
           <p className="text-base font-semibold">Average Time For Travel: {spot.travelTime}</p>
-          <p className="text-base font-semibold">Total Visitors Per Year: {spot.totalVisitor} </p>
           <p className="mt-2">{spot.description}</p>
           {/* Add more details as needed */}
         </div>

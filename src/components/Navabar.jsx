@@ -54,7 +54,6 @@ const Navbar = () => {
         <span className="p-2 text-lg font-bold">All Tourist spot</span>
       </NavLink>
 
-      
       <NavLink
         to="/myList"
         className={({ isActive }) =>
@@ -127,7 +126,9 @@ const Navbar = () => {
             to={"/"}
             className="text-4xl font-bold hover:text-yellow-400 transition-transform hover:scale-105"
           >
-            <span className="text-4xl">JourneyJunction</span>
+            <span className="text-4xl block hide-on-small-devices">
+              JourneyJunction
+            </span>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
