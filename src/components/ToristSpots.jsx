@@ -26,10 +26,10 @@ const ToristSpots = () => {
           <div key={spot._id} className=" p-4 shadow-lg rounded-lg border">
             <img
               src={spot.photo}
-              alt={spot.country}
+              alt={spot.country_Name}
               className="w-full h-40 object-cover mb-2 rounded-md"
             />
-            <h2 className="text-lg font-semibold">{spot.country}</h2>
+            <h2 className="text-lg font-semibold">{spot.country_Name}</h2>
             <p>{spot.description}</p>
             <Link to={`/view-details/${spot._id}`}>
             <button className="btn bg-blue-600">View Details</button></Link>

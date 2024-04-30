@@ -22,23 +22,23 @@ const ViewDetails = () => {
       });
   }, [id]);
 
-  // Render spot details
   return (
     <div>
       {spotDetails ? (
         <>
-        <div className="md:flex md:flex-row  mx-auto border rounded-md px-2 shadow-lg shadow-amber-800">
+        <div className="md:flex md:flex-row  mx-auto border rounded-md px-2 shadow-lg shadow-stone-600">
         <img className="w-full lg:w-2/4 rounded-lg mx-auto" src={spotDetails.photo} alt="" />
           <div className="px-2 lg:px-4 space-y-1 mt-2">
           <h2> <span className="font-bold">Country Name:</span> {spotDetails.country}</h2>
-          <p> <span className="font-bold"></span>Spot Name: {spotDetails.spot}</p>
-          <p> <span className="font-bold"></span>Location Name: {spotDetails.location}</p>
-          <p> <span className="font-bold"></span>Description: {spotDetails.description}</p>
-          <p> <span className="font-bold"></span>Seasons: {spotDetails.season}</p>
-          <p> <span className="font-bold"></span>Cost: {spotDetails.cost} USD$</p>
-          <p> <span className="font-bold"></span>Total visitors per year: {spotDetails.totalVisit}</p>
-          <p> <span className="font-bold"></span>Average time for travel: {spotDetails.travelTime}</p>
-          <p> <span className="font-bold"></span>Addded by: {spotDetails.userName} </p>
+          <p> <span className="font-bold">Spot Name:</span> {spotDetails.spot}</p>
+          <p> <span className="font-bold">Location Name:</span> {spotDetails.location}</p>
+          <p> <span className="font-bold">Description:</span> {spotDetails.description}</p>
+          <p> <span className="font-bold">Seasons:</span> {spotDetails.season}</p>
+          <p> <span className="font-bold">Cost:</span> {spotDetails.cost} USD$</p>
+          <p> <span className="font-bold">Total visitors per year:</span> {spotDetails.totalVisit}</p>
+          <p> <span className="font-bold">Average time for travel:</span> {spotDetails.travelTime}</p>
+          <p> <span className="font-bold">Addded by:</span> {spotDetails.userName} </p>
+          <p> <span className="font-bold">Email:</span> {spotDetails.email} </p>
           </div>
         </div>
          

@@ -27,7 +27,7 @@ const UpdateDEtails = () => {
     const form = event.target;
     console.log(form);
     const photo = form.photo.value;
-    const country = form.country.value;
+    const country_Name = form.country.value;
     const spot = form.spot.value;
     const location = form.location.value;
     const cost = form.cost.value;
@@ -37,7 +37,7 @@ const UpdateDEtails = () => {
     const description = form.description.value;
 
     const info = {
-      country,
+      country_Name,
       cost,
       season,
       travelTime,
@@ -90,7 +90,7 @@ const UpdateDEtails = () => {
         </h2>
         <form onSubmit={handleUpdate}>
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-            <div className="w-full">
+            {/* <div className="w-full">
               {" "}
               <label
                 htmlFor="Country name"
@@ -107,7 +107,32 @@ const UpdateDEtails = () => {
                 defaultValue={details.country}
                 required
               />
+            </div> */}
+
+<div className="w-full">
+              <label
+                htmlFor="country"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Select Country
+              </label>
+              <select
+                name="country"
+                id="country"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                required
+              >
+                <option value="">Select a Country</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                <option value="Tajikistan">Tajikistan</option>
+                <option value="Turkmenistan">Turkmenistan</option>
+                <option value="Uzbekistan">Uzbekistan</option>
+                <option value="Afghanistan">Mongolia</option>
+              </select>
             </div>
+
+
             <div className="w-full">
               {" "}
               <label

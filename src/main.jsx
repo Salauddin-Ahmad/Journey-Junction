@@ -16,6 +16,7 @@ import ToristSpots from "./components/ToristSpots";
 import AllSpots from "./components/AllSpots";
 import PrivateRoute from "./components/PrivateRoute";
 import ViewDetails from "./components/ViewDetails";
+import Countries from "./components/Countries";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
           <>
             <Sliders></Sliders>
             <ToristSpots></ToristSpots>
+            <Countries></Countries>
           </>
         ),
       },

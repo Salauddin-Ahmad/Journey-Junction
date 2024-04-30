@@ -2,19 +2,17 @@ import useAuth from "../firebase/useAuth";
 
 import Swal from "sweetalert2";
 
-
 const AddTouristForm = () => {
   const { user } = useAuth() || {};
   const originalEmail = user.email;
   const handleSubmit = (event) => {
     event.preventDefault();
-    
 
     const form = event.target;
     const userName = form.name.value;
     const photo = form.photo.value;
     const email = form.email.value;
-    const country = form.country.value;
+    const country_Name = form.country.value;
     const spot = form.spotName.value;
     const location = form.location.value;
     const cost = form.averageCost.value;
@@ -23,7 +21,19 @@ const AddTouristForm = () => {
     const totalVisit = form.totalVisit.value;
     const description = form.description.value;
 
-    const info = {country, cost, season, travelTime, totalVisit, description, location, spot, email, photo, userName,}
+    const info = {
+      country_Name,
+      cost,
+      season,
+      travelTime,
+      totalVisit,
+      description,
+      location,
+      spot,
+      email,
+      photo,
+      userName,
+    };
     // console.log(info);
 
     fetch("http://localhost:5000/addSpot", {
@@ -33,17 +43,16 @@ const AddTouristForm = () => {
       },
       body: JSON.stringify(info),
     })
-     .then((res) => res.json())
-     .then((data) => {
-       if(data?.insertedId){
-        Swal.fire({
-          title: "Nice!",
-          text: "Data added successfully",
-          icon: "success",
-        });
-       }
-      })
-
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.insertedId) {
+          Swal.fire({
+            title: "Nice!",
+            text: "Data added successfully",
+            icon: "success",
+          });
+        }
+      });
   };
   return (
     <section className="bg-white dark:bg-gray-500">
@@ -53,31 +62,34 @@ const AddTouristForm = () => {
         </h2>
         <form onSubmit={handleSubmit} action="#">
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-
-          <div className="w-full">
-  <label
-    htmlFor="country"
-    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-  >
-    Select Country
-  </label>
-  <select
-    name="country"
-    id="country"
-    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-    required
-  >
-    <option value="">Select a Country</option>
-    <option value="Kazakhstan">Kazakhstan</option>
-    <option value="Kyrgyzstan">Kyrgyzstan</option>
-    <option value="Tajikistan">Tajikistan</option>
-    <option value="Turkmenistan">Turkmenistan</option>
-    <option value="Uzbekistan">Uzbekistan</option>
-    <option value="Afghanistan">Mongolia</option>
-  </select>
-</div>
-
             
+            
+            <div className="w-full">
+              <label
+                htmlFor="country"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+                Select Country
+              </label>
+              <select
+                name="country"
+                id="country"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                required
+              >
+                <option value="">Select a Country</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                <option value="Tajikistan">Tajikistan</option>
+                <option value="Turkmenistan">Turkmenistan</option>
+                <option value="Uzbekistan">Uzbekistan</option>
+                <option value="Afghanistan">Mongolia</option>
+              </select>
+            </div>
+
+
+
+
             <div className="w-full">
               {" "}
               <label
@@ -95,7 +107,6 @@ const AddTouristForm = () => {
                 required
               />
             </div>
-            
             <div className="w-full">
               <label
                 htmlFor="location"
@@ -227,8 +238,8 @@ const AddTouristForm = () => {
                 id="email"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder="Type Your Email"
-               defaultValue={originalEmail}
-               disabled
+                defaultValue={originalEmail}
+                disabled
               />{" "}
             </div>{" "}
             {/* short description */}
@@ -249,17 +260,10 @@ const AddTouristForm = () => {
               />
             </div>
           </div>{" "}
-
-
           <div className="flex items-center justify-center mt-3">
-            <button
-              type="submit"
-              className="btn btn-primary hover:bg-blue-600"
-            >
+            <button type="submit" className="btn btn-primary hover:bg-blue-600">
               Add product
             </button>
-
-
           </div>
         </form>
       </div>
