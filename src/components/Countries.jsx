@@ -13,6 +13,10 @@ const Countries = () => {
   }, []);
   return (
     <>
+    <div className="my-8">
+      <h1 className="text-center text-2xl font-bold font-sans mb-2 ">Unveiling the Rich Diversity</h1>
+      <p className="text-center mx-auto  lg:w-[80%] text-base  font-sans "> Discover the vibrant tapestry of Central Asian nations, each  Countries have unique Spots, breathtaking landscapes, and rich historical legacies waiting to be explored. Here you can browse all the collection Spots to from cental asian countries</p>
+    </div>
       <div className="my-10">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 ">
           {countries.map((country) => {

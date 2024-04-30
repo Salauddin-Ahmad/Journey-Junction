@@ -40,7 +40,7 @@ const Navbar = () => {
             : "font-bold mr-2"
         }
       >
-        <span className="p-2 text-lg font-bold">Add Tourist spot</span>
+        <span className="p-2 text-lg font-bold">Add tourist spot</span>
       </NavLink>
 
       <NavLink
@@ -51,7 +51,7 @@ const Navbar = () => {
             : "font-bold mr-2"
         }
       >
-        <span className="p-2 text-lg font-bold">All Tourist spot</span>
+        <span className="p-2 text-lg font-bold">All tourist spot</span>
       </NavLink>
 
       <NavLink
@@ -62,7 +62,7 @@ const Navbar = () => {
             : "font-bold mr-2"
         }
       >
-        <span className="p-2 text-lg font-bold">My List</span>
+        <span className="p-2 text-lg font-bold">My list</span>
       </NavLink>
     </>
   );

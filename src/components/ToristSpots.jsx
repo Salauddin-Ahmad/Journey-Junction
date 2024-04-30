@@ -23,7 +23,7 @@ const ToristSpots = () => {
     </div>
       <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4">
         {touristSpots.map((spot) => (
-          <div key={spot._id} className=" p-4 shadow-lg rounded-lg border">
+          <div key={spot._id} className=" p-4 shadow-2xl shadow-stone-600 rounded-lg border">
             <img
               src={spot.photo}
               alt={spot.country_Name}
