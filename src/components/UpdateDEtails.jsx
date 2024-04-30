@@ -128,7 +128,7 @@ const UpdateDEtails = () => {
                 <option value="Tajikistan">Tajikistan</option>
                 <option value="Turkmenistan">Turkmenistan</option>
                 <option value="Uzbekistan">Uzbekistan</option>
-                <option value="Afghanistan">Mongolia</option>
+                <option value="Mongolia">Mongolia</option>
               </select>
             </div>
 
