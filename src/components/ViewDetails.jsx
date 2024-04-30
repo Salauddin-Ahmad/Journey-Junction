@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 const ViewDetails = () => {
   // State to store spot details
   const [spotDetails, setSpotDetails] = useState(null);
-  console.log(spotDetails);
+  // console.log(spotDetails);
 
   // Get spot ID from URL params
   const { id } = useParams();
@@ -23,7 +23,7 @@ const ViewDetails = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="mb-8">
       {spotDetails ? (
         <>
         <div className="grid grid-cols-1 lg:grid-cols-2 mx-auto border rounded-md px-2 shadow-lg shadow-stone-600">
@@ -52,5 +52,4 @@ const ViewDetails = () => {
   );
 };
 
-// Export ViewDetails component
 export default ViewDetails;
