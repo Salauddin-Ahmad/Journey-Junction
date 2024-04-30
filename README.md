@@ -2,28 +2,30 @@
 ## Live link:
 https://journey-junction-ab45b.web.app/
 
+###  Requirement Type 01 || Central Asia
+
 ### 1. Dark theme
 - Nice Dark / Light toggling feature
 - 
-### 1. Responsive Design
+### 2. Responsive Design
 
 - Our website is built with responsiveness in mind, ensuring a seamless user experience across various devices and screen sizes.
 
-### 2. Travel Management System
+### 3. Travel Management System
 - Enjoy hassle-free travel management with our intuitive and user-friendly platform.
 - Easily Browswe through our Travel Spots Based on countries
 
-### 3. Secure Authentication
+### 4. Secure Authentication
 - Your security is our top priority. We offer robust authentication mechanisms to protect your personal information and ensure a safe browsing experience.
 
-### 4. Dynamic Content
+### 5. Dynamic Content
 - Experience dynamic content, You can add your own spots and also update / delete your existing spots on My list page
 -  You can also see all added spots on All tourist spot page
 
-### 5. Fast Performance
+### 6. Fast Performance
 - Our website is optimized for speed, providing quick loading times and smooth navigation to enhance your browsing experience.
 
-### 6. Modern UI/UX Design
+### 7. Modern UI/UX Design
 - Immerse yourself in a visually stunning and modern user interface designed to captivate and engage users from the moment they land on our website.
 
 
