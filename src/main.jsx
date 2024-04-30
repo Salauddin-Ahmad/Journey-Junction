@@ -17,6 +17,7 @@ import AllSpots from "./components/AllSpots";
 import PrivateRoute from "./components/PrivateRoute";
 import ViewDetails from "./components/ViewDetails";
 import Countries from "./components/Countries";
+import SortedSpots from "./components/SortedSpots";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,12 @@ const router = createBrowserRouter([
             <Countries></Countries>
           </>
         ),
+      },
+      {
+        path: '/sortedSpots/:countryName', 
+        element: <PrivateRoute>
+          <SortedSpots />
+        </PrivateRoute>,
       },
       {
         path: `/view-details/:id`,

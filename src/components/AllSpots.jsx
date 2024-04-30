@@ -142,6 +142,7 @@ const AllSpots = () => {
               alt={spot.country}
             />
             <h1 className="text-xl font-semibold">Spot Name: {spot.spot}</h1>
+            <h1 className="text-xl font-semibold">Spot Name: {spot.country_Name}</h1>
             <p className="text-base font-semibold">Average cost: {spot.cost}</p>
             <p className="text-base font-semibold">Total Visitors Per Year: {spot.totalVisit} </p>
             <p className="text-base font-semibold">Average Time For Travel: {spot.travelTime}</p>

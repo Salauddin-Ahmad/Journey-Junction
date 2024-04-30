@@ -19,9 +19,9 @@ const Countries = () => {
             return (
               <div className="border rounded-lg shadow-lg shadow-stone-700 p-3" key={country._id}>
                 <img className="w-[340px] h-[200px] rounded-lg" src={country.image} alt="" />
-                <h1 className="text-xl font-bold">{country.country_name}</h1>
+                <h1 className="text-xl font-bold">{country.country_Name}</h1>
                 <h1 className="text-base">{country.decription}</h1>
-                <Link to={'/specificSpot'}>
+                <Link to={`/sortedSpots/${country.country_Name}`}>
                 <button className="btn btn-info">View spots</button>
                 </Link>
               </div>

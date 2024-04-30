@@ -63,7 +63,7 @@ const handleDelete = (id) => {
             src={data.photo}
             alt=""
           />
-          <h1 className="text-xl font-semibold">{data.country}</h1>
+          <h1 className="text-xl font-semibold">{data.country_Name}</h1>
           <p className=" mt-2">{data.description}</p>
           <div className="flex items-center justify-center gap-8 mt-2">
           <Link to={`/updateDetails/${data._id}`}>

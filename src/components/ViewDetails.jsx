@@ -29,7 +29,7 @@ const ViewDetails = () => {
         <div className="md:flex md:flex-row  mx-auto border rounded-md px-2 shadow-lg shadow-stone-600">
         <img className="w-full lg:w-2/4 rounded-lg mx-auto" src={spotDetails.photo} alt="" />
           <div className="px-2 lg:px-4 space-y-1 mt-2">
-          <h2> <span className="font-bold">Country Name:</span> {spotDetails.country}</h2>
+          <h2> <span className="font-bold">Country Name:</span> {spotDetails.country_Name}</h2>
           <p> <span className="font-bold">Spot Name:</span> {spotDetails.spot}</p>
           <p> <span className="font-bold">Location Name:</span> {spotDetails.location}</p>
           <p> <span className="font-bold">Description:</span> {spotDetails.description}</p>
