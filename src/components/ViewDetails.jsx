@@ -12,7 +12,7 @@ const ViewDetails = () => {
 
   // Fetch spot details using ID from server
   useEffect(() => {
-    fetch(`http://localhost:5000/upDetails/${id}`)
+    fetch(`https://journey-junction-server-kappa.vercel.app/upDetails/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSpotDetails(data);

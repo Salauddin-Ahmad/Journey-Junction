@@ -7,7 +7,7 @@ const AllSpots = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allSpots")
+    fetch("https://journey-junction-server-kappa.vercel.app/allSpots")
       .then((res) => res.json())
       .then((data) => {
         setSpots(data);

@@ -5,7 +5,7 @@ const Countries = () => {
   console.log(countries);
 
   useEffect(() => {
-    fetch("http://localhost:5000/countries")
+    fetch("https://journey-junction-server-kappa.vercel.app/countries")
       .then((res) => res.json())
       .then((data) => {
         setCountries(data);

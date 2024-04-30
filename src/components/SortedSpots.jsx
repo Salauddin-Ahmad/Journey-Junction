@@ -10,7 +10,7 @@ const SortedSpots = () => {
     const fetchSpots = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/sortedSpots/${countryName}`
+          `https://journey-junction-server-kappa.vercel.app/sortedSpots/${countryName}`
         );
         if (response.ok) {
           const data = await response.json();

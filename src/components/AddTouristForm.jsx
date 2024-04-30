@@ -36,7 +36,7 @@ const AddTouristForm = () => {
     };
     // console.log(info);
 
-    fetch("http://localhost:5000/addSpot", {
+    fetch("https://journey-junction-server-kappa.vercel.app/addSpot", {
       method: "POST",
       headers: {
         "content-Type": "application/json",

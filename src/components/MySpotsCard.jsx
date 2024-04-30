@@ -11,7 +11,7 @@ const MySpotsCard = () => {
 
   // route for getting data from server
   useEffect(() => {
-    fetch(`http://localhost:5000/mylist/${user?.email}`)
+    fetch(`https://journey-junction-server-kappa.vercel.app/mylist/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setItem(data);
@@ -28,7 +28,7 @@ const handleDelete = (id) => {
     }).then((result) => {
         if (result.isConfirmed) {
             // Proceed with the deletion
-            fetch(`http://localhost:5000/delete/${id}`, {
+            fetch(`https://journey-junction-server-kappa.vercel.app/delete/${id}`, {
                 method: "DELETE"
             })
             .then((res) => res.json())

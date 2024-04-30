@@ -10,7 +10,7 @@ const UpdateDEtails = () => {
 
   // get data from sever
   useEffect(() => {
-    fetch(`http://localhost:5000/upDetails/${id}`)
+    fetch(`https://journey-junction-server-kappa.vercel.app/upDetails/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setDetails(data);
@@ -50,7 +50,7 @@ const UpdateDEtails = () => {
     console.log(info);
 
     // Update information
-    fetch(`http://localhost:5000/updateSpot/${id}`, {
+    fetch(`https://journey-junction-server-kappa.vercel.app/updateSpot/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

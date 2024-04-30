@@ -5,7 +5,7 @@ const ToristSpots = () => {
   const [touristSpots, setTouristSpots] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/touristSpots")
+    fetch("https://journey-junction-server-kappa.vercel.app/touristSpots")
       .then((res) => res.json())
       .then((data) => {
         setTouristSpots(data);

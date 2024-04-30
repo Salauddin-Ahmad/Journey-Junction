@@ -1,8 +1,33 @@
-# React + Vite
+# Welcome to [JourneyJunction]
+## Live link:
+https://journey-junction-ab45b.web.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 1. Dark theme
+- Nice Dark / Light toggling feature
+- 
+### 1. Responsive Design
 
-Currently, two official plugins are available:
+- Our website is built with responsiveness in mind, ensuring a seamless user experience across various devices and screen sizes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 2. Travel Management System
+- Enjoy hassle-free travel management with our intuitive and user-friendly platform.
+- Easily Browswe through our Travel Spots Based on countries
+
+### 3. Secure Authentication
+- Your security is our top priority. We offer robust authentication mechanisms to protect your personal information and ensure a safe browsing experience.
+
+### 4. Dynamic Content
+- Experience dynamic content, You can add your own spots and also update / delete your existing spots on My list page
+-  You can also see all added spots on All tourist spot page
+
+### 5. Fast Performance
+- Our website is optimized for speed, providing quick loading times and smooth navigation to enhance your browsing experience.
+
+### 6. Modern UI/UX Design
+- Immerse yourself in a visually stunning and modern user interface designed to captivate and engage users from the moment they land on our website.
+
+
+## Contributing
+- We welcome contributions from the community! If you'd like to contribute to our project, please refer to our [contribution guidelines](CONTRIBUTING.md) for more information.
+
+
