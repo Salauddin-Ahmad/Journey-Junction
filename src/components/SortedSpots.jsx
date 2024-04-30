@@ -40,7 +40,7 @@ const SortedSpots = () => {
                 alt={spot.country_Name}
                 className="w-full h-40 object-cover mb-2 rounded-md"
               />
-              <h2 className="text-lg font-semibold">{spot.country_Name}</h2>
+              <h2 className="text-lg font-semibold">Spot Name:{spot.spot}</h2>
               <p>{spot.description}</p>
               <Link to={`/view-details/${spot._id}`}>
                 <button className="btn bg-blue-600">View Details</button>
