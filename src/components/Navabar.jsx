@@ -40,7 +40,7 @@ const Navbar = () => {
             : "font-bold mr-2"
         }
       >
-        <span className="p-2 text-lg font-bold">Add</span>
+        <span className="p-2 text-lg font-bold">Add Tourist spot</span>
       </NavLink>
 
       <NavLink

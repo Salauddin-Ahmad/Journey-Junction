@@ -54,32 +54,40 @@ const handleDelete = (id) => {
 };
 
 return (
+  <div className="overflow-x-auto">
     <table className="table-auto">
       <thead className="border">
         <tr>
-          <th className="px-4 py-2 border-4 border-yellow-600">Photo</th>
-          <th className="px-4 py-2 border-4 border-yellow-600">Country Name</th>
+          <th className="hidden sm:table-cell px-4 py-2 border-4 border-yellow-600">Image</th>
+          <th className="px-4 py-2 border-4 border-yellow-600 ">Country Name</th>
           <th className="px-4 py-2 border-4 border-yellow-600">Description</th>
           <th className="px-4 py-2 border-4 border-yellow-600">Actions</th>
         </tr>
       </thead>
-      <tbody >
+      <tbody>
         {item?.map((data) => (
           <tr className="border" key={data._id}>
-            <td className="px-4 py-2 border-4 border-emerald-700"><img className="w-[100px] h-[100px] rounded-md" src={data.photo} alt="" /></td>
-            <td className="px-4 py-2 border-4 border-emerald-700">{data.country_Name}</td>
-            <td className="px-4 py-2 border-4 border-emerald-700">{data.description}</td>
-            <td className="px-4 py-2 border-4 border-emerald-700">
-              <Link to={`/updateDetails/${data._id}`}>
-                <button className="btn bg-blue-600">Update</button>
-              </Link>
-              <button onClick={() => handleDelete(data._id)} className="btn bg-red-800">Delete</button>
+            <td className="hidden sm:table-cell px-4 py-2 border-4 border-emerald-700">
+              <img className="w-[100px] h-[100px] rounded-md" src={data.photo} alt="" />
+            </td>
+            <td className="lg:px-4 py-2 lg:text-lg lg:font-extrabold font sans border-4 border-emerald-700">{data.country_Name}</td>
+            <td className="lg:px-4 py-2 border-4 border-emerald-700">{data.description}</td>
+            <td className="lg:px-4 py-2 border-4 border-emerald-700">
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Link to={`/updateDetails/${data._id}`}>
+                  <button className="btn bg-blue-600">Update</button>
+                </Link>
+                <button onClick={() => handleDelete(data._id)} className="btn bg-red-800">Delete</button>
+              </div>
             </td>
           </tr>
         ))}
       </tbody>
     </table>
-  );
+  </div>
+);
+
+
   
 
 };

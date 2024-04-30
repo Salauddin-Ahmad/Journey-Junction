@@ -18,6 +18,8 @@ import PrivateRoute from "./components/PrivateRoute";
 import ViewDetails from "./components/ViewDetails";
 import Countries from "./components/Countries";
 import SortedSpots from "./components/SortedSpots";
+import Testimonial from "./components/Extra/Testimonial";
+import WhyUS from "./components/Extra/WhyUS";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,8 @@ const router = createBrowserRouter([
             <Sliders></Sliders>
             <ToristSpots></ToristSpots>
             <Countries></Countries>
+            <Testimonial></Testimonial>
+           <WhyUS></WhyUS>
           </>
         ),
       },
