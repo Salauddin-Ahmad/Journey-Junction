@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const ToristSpots = () => {
   const [touristSpots, setTouristSpots] = useState([]);
@@ -16,8 +17,8 @@ const ToristSpots = () => {
 
   return (
     <>
-    <div>
-       <h1 className="text-2xl text-center pt-8 font-serif font-bold">Escape to Serene Retreats</h1> 
+    <div className="">
+       <h1 className="text-2xl text-center pt-8 font-serif font-bold">Escape to Serene Retreats. <br /> Browse Your Favourite Tourist Spots </h1> 
        <p className="w-[90%] mx-auto mt-3 mb-3">Find serenity in secluded retreats and tranquil hideaways, where you can rejuvenate your body, mind, and soul amidst peaceful surroundings. Dive into the pulse of vibrant cities, where modernity meets tradition, offering bustling markets, world-class cuisine, and electrifying nightlife.</p>
     </div>
       <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4">
@@ -30,7 +31,8 @@ const ToristSpots = () => {
             />
             <h2 className="text-lg font-semibold">{spot.country}</h2>
             <p>{spot.description}</p>
-            <button className="btn bg-blue-600">View Details</button>
+            <Link to={`/view-details/${spot._id}`}>
+            <button className="btn bg-blue-600">View Details</button></Link>
           </div>
         ))}
       </div>

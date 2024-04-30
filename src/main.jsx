@@ -15,6 +15,7 @@ import UpdateDEtails from "./components/UpdateDEtails";
 import ToristSpots from "./components/ToristSpots";
 import AllSpots from "./components/AllSpots";
 import PrivateRoute from "./components/PrivateRoute";
+import ViewDetails from "./components/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,12 @@ const router = createBrowserRouter([
             <ToristSpots></ToristSpots>
           </>
         ),
+      },
+      {
+        path: `/view-details/:id`,
+        element: <PrivateRoute>
+          <ViewDetails></ViewDetails>
+        </PrivateRoute>
       },
       {
         path: "/updateDetails/:id",

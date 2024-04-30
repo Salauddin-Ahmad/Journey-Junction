@@ -28,7 +28,8 @@ const Sliders = () => {
             src="https://i.postimg.cc/MTw07g4k/axp-photography-We-Q3-MWBFhk-E-unsplash.jpg"
             alt=""
             style={{
-              maxWidth: "100%",
+              width: "100%",
+              
               height: "85vh",
               marginTop: "20px",
               borderRadius: "5px",
