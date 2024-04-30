@@ -6,7 +6,8 @@ https://journey-junction-ab45b.web.app/
 
 ### 1. Dark theme
 - Nice Dark / Light toggling feature
-- 
+
+
 ### 2. Responsive Design
 
 - Our website is built with responsiveness in mind, ensuring a seamless user experience across various devices and screen sizes.
