@@ -43,7 +43,7 @@ const SortedSpots = () => {
               <h2> <span className="text-lg font-semibold">Spot Name:</span>  {spot.spot}</h2>
               <h2> <span className="text-lg font-semibold">Country Name:</span>  {spot.country_Name}</h2>
               <h2> <span className="text-lg font-semibold">Location: </span> {spot.location}</h2>
-              <h2> <span className="text-lg font-semibold">Average Cost:</span>  {spot.cost}</h2>
+              <h2> <span className="text-lg font-semibold">Average Cost:</span>  {spot.cost} $USD</h2>
               <h2> <span className="text-lg font-semibold">Seasonality:</span>  {spot.season}</h2>
               <h2> <span className="text-lg font-semibold">Description:</span>  {spot.description}</h2>
               

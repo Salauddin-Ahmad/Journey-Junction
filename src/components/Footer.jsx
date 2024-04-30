@@ -5,15 +5,15 @@ const Footer = () => {
   const LINKS = [
     {
       title: "Product",
-      items: ["Overview", "Features", "Solutions", "Tutorials"],
+      items: ["Overview", "Features", "Solutions"],
     },
     {
       title: "Company",
-      items: ["About us", "Careers", "Press", "News"],
+      items: ["About us", "Press", "News"],
     },
     {
       title: "Resource",
-      items: ["Blog", "Newsletter", "Events", "Help center"],
+      items: ["Blog", "Newsletter", "Help center"],
     },
   ];
 
@@ -27,9 +27,16 @@ const Footer = () => {
       <Fade>
         <div className="mx-auto w-full max-w-7xl px-8">
           <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
-            <Typography variant="h5" className="mb-6 text-4xl font-extrabold">
+           <div>
+           <Typography variant="h5" className="mb-6 text-4xl font-extrabold">
               JorneyJunction
             </Typography>
+
+            <h1 className="w-[90%]">
+            Explore the world with us at JourneyJunction, where every step leads to unforgettable experiences. Discover, and create lasting memories with us.
+            </h1>
+           </div>
+            
             <div className="grid grid-cols-3 justify-between gap-4">
               {LINKS.map(({ title, items }) => (
                 <ul key={title}>
