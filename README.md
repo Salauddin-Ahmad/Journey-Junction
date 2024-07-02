@@ -1,6 +1,6 @@
 # Welcome to [JourneyJunction]
-## This Website is to add spots from central asia and also you can manage them, (create , read, update and delete). 
-   You can also browse spots by countries and view its detail.
+## Overview
+This Website is to add spots from central asia and also you can manage them, (create , read, update and delete). You can also browse spots by countries and view its detail.
 
 ## Live link:
 https://journey-junction-ab45b.web.app/ 
