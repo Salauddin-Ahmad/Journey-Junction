@@ -33,6 +33,11 @@ https://vercel.com/md-saluddins-projects/journey-junction-server
 ### 7. Modern UI/UX Design
 - Immerse yourself in a visually stunning and modern user interface designed to captivate and engage users from the moment they land on our website.
 
+Setting Up the Project Locally
+1. Clone the repository.
+2. Run npm install to install dependencies.
+3. Set up environment variables for Firebase and MongoDB.
+4 .Run npm start to start the development server.
 
 ## Contributing
 - We welcome contributions from the community! If you'd like to contribute to our project, please refer to our [contribution guidelines](CONTRIBUTING.md) for more information.
