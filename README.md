@@ -12,7 +12,7 @@ https://vercel.com/md-saluddins-projects/journey-junction-server
 ###  Requirement Type 01 || Central Asia
 
 ### 1. Dark theme
-- Nice Dark / Light toggling feature
+- Nice Dark / Light toggling feature added
 
 
 ### 2. Responsive Design
